@@ -12,92 +12,93 @@
 
 <body>
 
-    <div class="left-panel">
+    <div class="container-of-containers">
+        <div class="left-panel">
 
-        <div class="logo">
-            <img src="/img/logo.svg" alt="logo" width="64px">
+            <div class="left-panel__logo">
+                <img src="/img/logo.svg" alt="logo" width="32px">
+            </div>
+            <ul class="left-panel__menu">
+                <li class="menu__menu-item">Home</li>
+                <li class="menu__menu-item">Library</li>
+                <li class="menu__menu-item">Files</li>
+            </ul>
+            <button class="left-panel__btn-add-data btn">Add Demo Data</button>
         </div>
-        <ul class="menu">
-            <li class="menu-item">Home</li>
-            <li class="menu-item">Library</li>
-            <li class="menu-item">Files</li>
-        </ul>
-        <button class="add-data btn">Add Demo Data</button>
+
+        <div class="main-panel">
+
+            <div class="main-panel__search">
+                <div class="search-icon"></div>
+            </div>
+
+            <div class="main-panel__collections">
+
+                <div class="collections__heading">
+                    <h1>Collections</h1>
+                    <div class="collections__view-all view-all">View all</div>
+                </div>
+
+                <div class="collections__proper">
+                    <div class="collection__container">
+                        <div class="collection__author">
+                            Brandon Sanderson
+                        </div>
+                        <div class="collection__name">
+                            The Reckoners
+                        </div>
+                        <div class="collection__number-of-books">
+                            3 books
+                        </div>
+                        <div class="collection__progress-bar">
+                            <!-- to figure out  -->
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div class="main-panel__books">
+
+                    <div class="books__heading">
+                        <h1>Books</h1>
+                        <button class="books__btn-add-book btn">Add book</button>
+                        <div class="book__view-all view-all">View all</div>
+                    </div>
+
+                    <div class="books__proper">
+                        <div class="book__container">
+                            <div class="book__title">Firefight</div>
+                            <div class="book__author">Brandon Sanderson</div>
+                            <div class="book__collection">The Reckoners</div>
+                            <div class="book__year">2018</div>
+                            <div class="book__status">Read</div>
+                            <!-- should this be a button? -->
+                            <div class="book__delete"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="right-panel">
+            <div class="right-panel__activities">
+                <h2>Activities</h2>
+                <div class="activities__proper">
+                    <div class="activities__icon">
+                        <p class="activities__text">
+                            <span class="activities__user">You</span> have added <span
+                                class="activities__book-title">Firefight</span>
+                            by <span class="activities__book-author">Brandon Sanderson</span>.
+                        </p>
+                        <p class="activities__date">2022-09-07 11:29</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="main-panel">
-
-        <div class="main-panel__search">
-            <div class="search-icon"></div>
-        </div>
-
-        <div class="main-panel__collections">
-
-            <div class="collections__heading">
-                <h1>Collections</h1>
-                <div class="collections__view-all view-all">View all</div>
-            </div>
-
-            <div class="collections__proper">
-                <div class="collection__container">
-                    <div class="collection__author">
-                        Brandon Sanderson
-                    </div>
-                    <div class="collection__name">
-                        The Reckoners
-                    </div>
-                    <div class="collection__number-of-books">
-                        3 books
-                    </div>
-                    <div class="collection__progress-bar">
-                        <!-- to figure out  -->
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <div class="main-panel__books">
-
-                <div class="books__heading">
-                    <h1>Books</h1>
-                    <button class="books__add-book btn">Add book</button>
-                    <div class="book__view-all view-all">View all</div>
-                </div>
-
-                <div class="books__proper">
-                    <div class="book__container">
-                        <div class="book__title">Firefight</div>
-                        <div class="book__author">Brandon Sanderson</div>
-                        <div class="book__collection">The Reckoners</div>
-                        <div class="book__year">2018</div>
-                        <div class="book__status">Read</div>
-                        <!-- should this be a button? -->
-                        <div class="book__delete"></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <div class="right-panel">
-        <div class="right-panel__activities">
-            <h2>Activities</h2>
-            <div class="activities__proper">
-                <div class="activities__icon">
-                    <p class="activities__text">
-                        <span class="activities__user">You</span> have added <span
-                            class="activities__book-title">Firefight</span>
-                        by <span class="activities__book-author">Brandon Sanderson</span>.
-                    </p>
-                    <p class="activities__date">2022-09-07 11:29</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
 </body>
 
 </html>

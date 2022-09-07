@@ -1,12 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Varela+Round&display=swap');
+@import "https://unpkg.com/open-props";
+
+
+/* 
+==================
+TABLE OF CONTENTS
+==================
+
+1. General
+- colors
+- body
+
+2. Left panel
+
+3. Main panel
+
+4. Right panel
+
+*/
+
+
+/* 1. GENERAL */
+
 * {
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
-    width: 100vw;
+html {
+    background-color: var(--gray-1);
 }
 
+.btn {
+    border-radius: 9999px;
+    outline: 0;
+    border: 0;
+    font-family: "Varela Round", Helvetica, "Segoe UI", Arial, sans-serif;
+    padding: 10px 15px;
+
+}
+
+.btn:hover {
+
+}
+
+.container-of-containers {
+    font-family: 'Space Grotesk', Helvetica, "Segoe UI", Arial, sans-serif;
+    display:flex;
+    align-items: stretch;
+    justify-content: stretch;
+    height: 98vh;
+    width: 98vw;
+    padding: 1vw;
+    border-radius: 25px;
+
+}
+
+/* 2. LEFT PANEL */
+
 .left-panel {
-   width: 250px;
+    padding-left: 1vw;
+    padding-top: 1vw;
+    width: 12vw;
+    background-color: var(--violet-8);
+    border-radius: 20px 0 0 20px;
+}
+
+/* 2.1 Logo  */
+
+.left-panel__logo {
+    /*  */
+}
+
+/*  2.2 Menu*/
+.left-panel__menu {
+    padding-top: 14vh;
+    list-style-type: none;
+    padding-left: 0;
+    text-transform: uppercase;
+}
+
+/* 2.3 Menu items */
+.menu__menu-item {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--violet-0);
+}
+
+.menu__menu-item:hover {
+    font-weight: 700;
+    transition: 250ms;
+}
+
+/* 2.4 Add Demo Data button */
+.left-panel__btn-add-data {
+    position:absolute;
+    bottom: 50px;
+    background-color: var(--violet-3);
+}
+
+.left-panel__btn-add-data:hover {
+    background-color: var(--violet-2);
+}
+
+.left-panel__btn-add-data:hover {
+    background-color: var(--violet-2);
+}
+
+
+
+
+
+
+
+
+
+/* 3. Main panel */
+.main-panel {
+    padding-left: 1vw;
+    padding-top: 1vw;
+    width: 12vw;
+    background-color: white;
+    flex: 1;
+}
+
+/* 4. Right panel */
+
+.right-panel {
+    padding-left: 1vw;
+    padding-top: 1vw;
+    width: 12vw;
+    background-color: white;
+    border-radius: 0 20px 20px 0;
+    border-left: 1px solid var(--gray-1);
+    flex: 1;
 }

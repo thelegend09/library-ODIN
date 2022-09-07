@@ -26,8 +26,9 @@ TABLE OF CONTENTS
     box-sizing: border-box;
 }
 
-html {
+body {
     background-color: var(--gray-1);
+    /* height: 100vh; */
 }
 
 .btn {
@@ -36,20 +37,23 @@ html {
     border: 0;
     font-family: "Varela Round", Helvetica, "Segoe UI", Arial, sans-serif;
     padding: 10px 15px;
-
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .btn:hover {
-
+    transition: ease-out 250ms;
+    box-shadow: var(--shadow-3);
 }
+
 
 .container-of-containers {
     font-family: 'Space Grotesk', Helvetica, "Segoe UI", Arial, sans-serif;
-    display:flex;
+    display: flex;
     align-items: stretch;
     justify-content: stretch;
     height: 98vh;
-    width: 98vw;
+    max-width: 100vw;
     padding: 1vw;
     border-radius: 25px;
 
@@ -84,7 +88,8 @@ html {
     padding-top: 1em;
     padding-bottom: 1em;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: 300;
+    letter-spacing: 1pt;
     color: var(--violet-0);
 }
 
@@ -95,24 +100,20 @@ html {
 
 /* 2.4 Add Demo Data button */
 .left-panel__btn-add-data {
-    position:absolute;
+    position: absolute;
     bottom: 50px;
+    font-size: 0.7rem;
     background-color: var(--violet-3);
+    color: var(--violet-9);
 }
 
 .left-panel__btn-add-data:hover {
     background-color: var(--violet-2);
 }
 
-.left-panel__btn-add-data:hover {
-    background-color: var(--violet-2);
+.left-panel__btn-add-data:active {
+    background-color: var(--violet-1);
 }
-
-
-
-
-
-
 
 
 
@@ -124,6 +125,9 @@ html {
     background-color: white;
     flex: 1;
 }
+
+
+
 
 /* 4. Right panel */
 

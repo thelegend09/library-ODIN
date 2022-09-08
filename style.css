@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
 @import "https://unpkg.com/open-props";
 
 
@@ -28,6 +28,8 @@ TABLE OF CONTENTS
 
 body {
     background-color: var(--gray-1);
+    font-family: 'Nunito', Helvetica, "Segoe UI", Arial, sans-serif;
+
     /* height: 100vh; */
 }
 
@@ -35,20 +37,20 @@ body {
     border-radius: 9999px;
     outline: 0;
     border: 0;
-    font-family: "Varela Round", Helvetica, "Segoe UI", Arial, sans-serif;
+    font-family: "Nunito", Helvetica, "Segoe UI", Arial, sans-serif;
     padding: 10px 15px;
     text-transform: uppercase;
-    font-weight: bold;
+    transition: all 250ms;
+
+
 }
 
 .btn:hover {
-    transition: ease-out 250ms;
     box-shadow: var(--shadow-3);
 }
 
 
 .container-of-containers {
-    font-family: 'Space Grotesk', Helvetica, "Segoe UI", Arial, sans-serif;
     display: flex;
     align-items: stretch;
     justify-content: stretch;
@@ -109,20 +111,24 @@ h2 {
     font-weight: 300;
     letter-spacing: 1pt;
     color: var(--violet-0);
+    transition: all 250ms;
 }
 
 .menu__menu-item:hover {
     font-weight: 700;
-    transition: 250ms;
+
 }
 
 /* 2.4 Add Demo Data button */
 .left-panel__btn-add-data {
     position: absolute;
     bottom: 50px;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     background-color: var(--violet-3);
     color: var(--violet-9);
+    font-weight: 900;
+    transition: all 250ms;
+
 }
 
 .left-panel__btn-add-data:hover {
@@ -142,7 +148,11 @@ h2 {
     /* padding-top: 1vw; */
     width: 12vw;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     flex: 1;
+    flex-basis: 50%;
 }
 
 /* 3.1 Search field  */
@@ -161,9 +171,212 @@ h2 {
     border: 0;
 }
 
+/* 3.2 Collections and books sections */
+
+/* 3.2.1 View all buttons */
+.collections__view-all,
+.book__view-all {
+    color: var(--gray-5);
+    transition: all 250ms;
+
+}
+
+.collections__view-all::after,
+.book__view-all::after {
+    content: "  ›"
+}
+
+.collections__view-all:hover,
+.book__view-all:hover {
+    color: var(--gray-6);
+}
+
+/* 3.2.2 headings  */
+.collections__heading,
+.books__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--gray-2);
+    padding-bottom: 0.5em;
+}
+
+
+/* 3.2.2.1 "Add book" button */
+.heading-and-button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+}
+
+.books__btn-add-book {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5pt;
+    padding: 0.4em 1.5em;
+    position: relative;
+    top: 14px;
+    background-color: var(--violet-6);
+    color: white;
+    transition: all 250ms;
+
+}
+
+.books__btn-add-book:hover {
+    background-color: var(--violet-4);
+}
+
+.books__btn-add-book:active {
+    background-color: var(--violet-2);
+}
+
+/* 3.2.3 Collection item */
+
+.collections__proper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    padding-top: 2em;
+    gap: 1.5em;
+}
+
+.collection__container {
+    display: grid;
+    grid-template-rows: 4fr 1fr 1fr 1fr;
+    background-color: var(--gray-1);
+    border-radius: 15px;
+    padding: 1em 1.2em;
+    transition: all 250ms;
+
+
+}
+
+.collection__container:hover {
+    box-shadow: var(--shadow-3);
+    
+}
+
+.collection__author {
+    align-self: end;
+    max-width: 50%;
+    font-size: 2rem;
+    line-height: 1.9rem;
+    font-weight: 100;
+    color: var(--gray-5);
+}
+
+.collection__name {
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.collection__number-of-books {
+    font-size: 0.9rem;
+}
+
+/* 3.2.3.1 progress bar  */
+progress {
+    border-radius: 7px;
+    width: 100%;
+    height: 0.5em;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--gray-4);
+    border-radius: 7px;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--violet-3);
+    border-radius: 7px;
+}
+
+/* 3.3 books section */
+
+.books__proper {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.book__container {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 2fr;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gray-7);
+    transition: all 50ms;
+
+    /* margin-top: 1em; */
+    padding: 1.2em;
+
+}
+
+.book__container:nth-child(1) {
+    margin-top: 1em;
+}
+
+.book__container:nth-child(odd) {
+    background-color: var(--gray-0);
+    border-radius: 15px;
+}
+
+.book__container:hover {
+    background-color: var(--gray-1);
+    border-radius: 15px;
+
+
+}
+
+.book__delete {
+    opacity: 0.8;
+    transition: all 250ms;
+}
+
+.book__delete:hover {
+    opacity: 1;
+    transform: rotate(2deg);
+
+}
+
+.book__delete:active {
+    color: var(--red-7);
+    /* transform: rotate(-5deg); */
+}
+
+.book__title {
+    color: var(--violet-9);
+    font-weight: 800;
+}
+
+.book__delete {
+    justify-self: end;
+}
+
+
+.book__status {
+    font-size: 0.9rem;
+    padding: 0.1em 1em;
+    font-weight: 900;
+    justify-self: center;
+    align-self: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.book__status.is-unread {
+    background-color: var(--yellow-2);
+}
+
+.book__status.is-read {
+    background-color: var(--lime-2);
+}
 
 
 
+/* --------------  */
 /* 4. Right panel */
 
 .right-panel {
@@ -172,6 +385,6 @@ h2 {
     width: 12vw;
     background-color: white;
     border-radius: 0 20px 20px 0;
-    border-left: 1px solid var(--gray-1);
+    border-left: 3px solid var(--gray-1);
     flex: 1;
 }

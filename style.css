@@ -6,18 +6,25 @@
 ==================
 TABLE OF CONTENTS
 ==================
+Get my titles from CSS: https://regex101.com/r/19A7fa/1
 
-1. General
-- colors
-- body
+ 1. GENERAL 
+ 2. LEFT PANEL 
+    2.1 Logo  
+    2.3 Menu items 
+    2.4 Add Demo Data button 
+ 3. MAIN PANEL 
+    3.1 Search field  
+    3.2 Collections and books sections 
+    3.2.1 View all buttons 
+    3.2.2 headings  
+    3.2.2.1 "Add book" button 
+    3.2.3 Collection item 
+    3.2.3.1 progress bar  
+    3.3 books section 
+ 4. Right panel 
 
-2. Left panel
-
-3. Main panel
-
-4. Right panel
-
-*/
+-======================
 
 
 /* 1. GENERAL */
@@ -299,6 +306,23 @@ progress::-webkit-progress-value {
     gap: 1em;
 }
 
+.books__shelf {
+    overflow: scroll;
+    max-height: 45vh;
+    height: 40vh;
+
+    /* hide scrollbars */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/*  hide scrollbars */
+.books__shelf::-webkit-scrollbar {
+    display: none;
+}
+
+
+
 .book__container {
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr 1fr 2fr;
@@ -306,7 +330,7 @@ progress::-webkit-progress-value {
     align-items: center;
     color: var(--gray-7);
     transition: all 50ms;
-
+    
     /* margin-top: 1em; */
     padding: 1.2em;
 

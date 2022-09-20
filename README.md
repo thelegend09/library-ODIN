@@ -8,8 +8,12 @@ Roadmap:
 - [x] Add demo data
 - [x] Delete books by clicking trash icon
 - [ ] Delete books from actual array by clicking on the trash icon
+  - [ ] Find how to access myLibrary
 - [ ] Create modal to add books
-- [ ] Get collections from book data
+- [x] Get unique collections from book data
+  - [ ] Create collection cards for each collection
+    - [ ] with the title, author, and number of books
+    - [ ] calculate the percentage read
 - [ ] Calculate the percentage of collection read
 - [ ] Make less ugly on smaller screen size
 - [ ] Have a clear all books button
@@ -26,3 +30,4 @@ Maybe later:
 - [ ] Add history (right panel)
 - [ ] Add some sound effects (see [this](https://gomakethings.com/how-to-play-a-sound-with-javascript/))
 - [ ] Make responsive
+- [ ] Prevent duplicates

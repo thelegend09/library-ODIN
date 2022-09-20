@@ -22,7 +22,7 @@ Get my titles from CSS: https://regex101.com/r/19A7fa/1
     3.2.3 Collection item 
     3.2.3.1 progress bar  
     3.3 books section 
- 4. Right panel 
+
 
 -======================
 
@@ -400,15 +400,3 @@ progress::-webkit-progress-value {
 
 
 
-/* --------------  */
-/* 4. Right panel */
-
-.right-panel {
-    padding-left: 1vw;
-    padding-top: 1vw;
-    width: 12vw;
-    background-color: white;
-    border-radius: 0 20px 20px 0;
-    border-left: 3px solid var(--gray-1);
-    flex: 1;
-}

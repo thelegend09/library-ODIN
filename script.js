@@ -84,7 +84,7 @@ function refreshLib() {
     deleteButtonContainer.appendChild(deleteButton)
 
   });
-  refreshButtons()
+  toggleReadUnread();
 };
 
 // get number of unique collections
@@ -112,12 +112,10 @@ function getUniqueCollections(everyBook) {
   return uniqueCollections;
 }
 
-// BUTTONS
-// testing button
+// testing Button (on top left logo)
 const testingButton = document.querySelector(".logo")
 testingButton.addEventListener("click", () => {
-  // refreshLib()
-  getUniqueCollections(myLibrary)
+  console.log("Testing button is working.")
 });
 
 
@@ -125,50 +123,56 @@ testingButton.addEventListener("click", () => {
 const btnAddBook = document.querySelector(".books__btn-add-book");
 btnAddBook.addEventListener("click", addBookToLibrary);
 
-
-function refreshButtons() {
-  // read/unread
+// read/unread button on each book
+function toggleReadUnread() {
   const readingStatus = document.querySelectorAll(".book__status")
 
   readingStatus.forEach((button) => {
-    // ! this changes the appearance but not the "status" property in myLibrary
-    // ! but I don't know how to change that yet
-    button.addEventListener("click", function checkReadingStatus() {
-      if (button.classList.contains("is-read")) {
-        button.textContent = "unread"
-        button.classList.remove("is-read")
-        button.classList.add("is-unread")
-      } else if (button.classList.contains("is-unread")) {
-        button.textContent = "read"
-        button.classList.remove("is-unread")
-        button.classList.add("is-read")
+    button.addEventListener("click", () => {
+
+      let book = button.parentElement;
+      let bookChildren = book.childNodes
+      
+      // target the book__status div
+      let currentStatus = bookChildren[4].textContent;
+
+
+      if (currentStatus === "read") {
+        bookChildren[4].textContent = "unread"
+        button.classList.remove("is-read");
+        button.classList.add("is-unread");
       }
+
+      else if (currentStatus === "unread") {
+        bookChildren[4].textContent = "read"
+        button.classList.remove("is-unread");
+        button.classList.add("is-read");
+      }
+
+        button.textContent = bookChildren[4].textContent;
+
     });
   });
 
-  // delete
+  // delete button on each book
   const deleteButtons = document.querySelectorAll(".book__delete")
   deleteButtons.forEach((button) => {
-    button.addEventListener("click", function deleteBook() {
+    button.addEventListener("click", () => {
 
       // remove data in array
-
       let book = button.parentElement;
       bookTitle = book.firstChild.textContent;
 
       myLibrary.forEach(item => {
         if (item.title === bookTitle) {
-          alert(bookTitle + " has been removed from your library.")
           myLibrary.splice(myLibrary.indexOf(item), 1)
+          console.log(bookTitle + " has been removed from your library.")
 
         };
       });
 
       // remove visible element --  https://bobbyhadz.com/blog/javascript-remove-parent-element
       button.parentElement.remove();
-
-      // necessary??
-      // refreshLib()
     })
   });
 

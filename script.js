@@ -13,7 +13,7 @@ function Book(title, collection, author, year, status) {
 // initialize
 addDemoDataToLibrary()
 
-// rudimentary
+// rudimentary function, will change 
 function addBookToLibrary() {
   let newBook = new Book(prompt("title"), prompt("collection"), prompt("author"), prompt("year"), prompt("status"))
   myLibrary.push(newBook)
@@ -21,9 +21,9 @@ function addBookToLibrary() {
 }
 
 
+// refresh interface so that what you see is the actual content of myLibrary
 function refreshLib() {
-  // alert("it works") ! 
-  
+  // alert("it works")  
   let booksShelf = document.querySelector(".books__shelf")
 
   myLibrary.forEach(book => {
@@ -87,13 +87,38 @@ function refreshLib() {
   refreshButtons()
 };
 
+// get number of unique collections
+// https://javascript.plainenglish.io/how-to-get-a-list-of-unique-values-from-a-javascript-array-of-objects-2e38f6cfd14
+function getUniqueCollections(everyBook) {
 
+  // use .map to retrieve the .collection property value of all the books in everyBook
+  allCollections = everyBook.map(book => book.collection);
+  
+  // https://melvingeorge.me/blog/remove-empty-elements-from-array-javascript
+  // numOfCol.filter((a) => a); // why doesn't this work?
 
+  // remove the empty values
+  const newArr = [];
+
+  for (let i = 0; i < allCollections.length; i++) {
+    if (allCollections[i]) {
+      newArr.push(allCollections[i]);
+    }
+  }
+
+  // remove duplicate by making it a Set
+  let uniqueCollections = [ ...new Set(newArr)]
+
+  return uniqueCollections;
+} 
 
 // BUTTONS
 // testing button
 const testingButton = document.querySelector(".logo")
-testingButton.addEventListener("click", () => refreshLib());
+testingButton.addEventListener("click", () => {
+  // refreshLib()
+  getUniqueCollections(myLibrary)
+});
 
 
 // add books 
@@ -124,7 +149,9 @@ function refreshButtons() {
   deleteButtons.forEach((button) => {
     button.addEventListener("click", function deleteBook() {
       // * https://bobbyhadz.com/blog/javascript-remove-parent-element
-      button.parentElement.remove();
+      // button.parentElement.remove();
+      alert(button.parentElement.id)
+
     })
   });
 

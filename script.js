@@ -132,24 +132,22 @@ function toggleReadUnread() {
 
       let book = button.parentElement;
       let bookChildren = book.childNodes
-      
+
       // target the book__status div
       let currentStatus = bookChildren[4].textContent;
-
 
       if (currentStatus === "read") {
         bookChildren[4].textContent = "unread"
         button.classList.remove("is-read");
         button.classList.add("is-unread");
-      }
-
-      else if (currentStatus === "unread") {
+      } else if (currentStatus === "unread") {
         bookChildren[4].textContent = "read"
         button.classList.remove("is-unread");
         button.classList.add("is-read");
       }
 
-        button.textContent = bookChildren[4].textContent;
+      // make sure the content of the button fits the data
+      button.textContent = bookChildren[4].textContent;
 
     });
   });

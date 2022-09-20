@@ -93,7 +93,7 @@ function getUniqueCollections(everyBook) {
 
   // use .map to retrieve the .collection property value of all the books in everyBook
   allCollections = everyBook.map(book => book.collection);
-  
+
   // https://melvingeorge.me/blog/remove-empty-elements-from-array-javascript
   // numOfCol.filter((a) => a); // why doesn't this work?
 
@@ -107,10 +107,10 @@ function getUniqueCollections(everyBook) {
   }
 
   // remove duplicate by making it a Set
-  let uniqueCollections = [ ...new Set(newArr)]
+  let uniqueCollections = [...new Set(newArr)]
 
   return uniqueCollections;
-} 
+}
 
 // BUTTONS
 // testing button
@@ -136,10 +136,12 @@ function refreshButtons() {
     button.addEventListener("click", function checkReadingStatus() {
       if (button.classList.contains("is-read")) {
         button.textContent = "unread"
-        button.classList.remove("is-read").add("is-unread")
+        button.classList.remove("is-read")
+        button.classList.add("is-unread")
       } else if (button.classList.contains("is-unread")) {
         button.textContent = "read"
-        button.classList.remove("is-unread").add("is-read")
+        button.classList.remove("is-unread")
+        button.classList.add("is-read")
       }
     });
   });
@@ -148,10 +150,25 @@ function refreshButtons() {
   const deleteButtons = document.querySelectorAll(".book__delete")
   deleteButtons.forEach((button) => {
     button.addEventListener("click", function deleteBook() {
-      // * https://bobbyhadz.com/blog/javascript-remove-parent-element
-      // button.parentElement.remove();
-      alert(button.parentElement.id)
 
+      // remove data in array
+
+      let book = button.parentElement;
+      bookTitle = book.firstChild.textContent;
+
+      myLibrary.forEach(item => {
+        if (item.title === bookTitle) {
+          alert(bookTitle + " has been removed from your library.")
+          myLibrary.splice(myLibrary.indexOf(item), 1)
+
+        };
+      });
+
+      // remove visible element --  https://bobbyhadz.com/blog/javascript-remove-parent-element
+      button.parentElement.remove();
+
+      // necessary??
+      // refreshLib()
     })
   });
 

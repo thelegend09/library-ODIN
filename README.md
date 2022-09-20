@@ -32,3 +32,4 @@ Maybe later:
 - [ ] Add some sound effects (see [this](https://gomakethings.com/how-to-play-a-sound-with-javascript/))
 - [ ] Make responsive
 - [ ] Prevent duplicates
+- [ ] Add status notifications  (see [this](https://www.cssscript.com/minimal-notification-popup-pure-javascript/))

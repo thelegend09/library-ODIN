@@ -11,13 +11,13 @@ function Book(title, collection, author, year, status) {
 }
 
 // initialize
-refreshLib()
+addDemoDataToLibrary()
 
 // rudimentary
 function addBookToLibrary() {
   let newBook = new Book(prompt("title"), prompt("collection"), prompt("author"), prompt("year"), prompt("status"))
   myLibrary.push(newBook)
-
+  refreshLib()
 }
 
 
@@ -75,7 +75,13 @@ function refreshLib() {
       bookStatus.classList.add("is-unread")
     }
 
-  
+    // Add delete button
+    let deleteButtonContainer = document.createElement("div")
+    let deleteButton = document.createElement("i")
+    deleteButtonContainer.classList.add("book__delete");
+    deleteButton.classList.add("ri-delete-bin-7-fill")
+    bookContainer.appendChild(deleteButtonContainer)
+    deleteButtonContainer.appendChild(deleteButton)
 
   });
   refreshButtons()
@@ -98,23 +104,31 @@ btnAddBook.addEventListener("click", addBookToLibrary);
 function refreshButtons() {
   // read/unread
   const readingStatus = document.querySelectorAll(".book__status")
-  readingStatus.forEach((button) => {
 
+  readingStatus.forEach((button) => {
     // ! this changes the appearance but not the "status" property in myLibrary
     // ! but I don't know how to change that yet
     button.addEventListener("click", function checkReadingStatus() {
       if (button.classList.contains("is-read")) {
-        button.textContent = "Unread"
-        button.classList.remove("is-read")
-        button.classList.add("is-unread")
+        button.textContent = "unread"
+        button.classList.remove("is-read").add("is-unread")
       } else if (button.classList.contains("is-unread")) {
-        button.textContent = "Read"
-        button.classList.remove("is-unread")
-        button.classList.add("is-read")
+        button.textContent = "read"
+        button.classList.remove("is-unread").add("is-read")
       }
     });
   });
-}
+
+  // delete
+  const deleteButtons = document.querySelectorAll(".book__delete")
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", function deleteBook() {
+      // * https://bobbyhadz.com/blog/javascript-remove-parent-element
+      button.parentElement.remove();
+    })
+  });
+
+};
 
 
 

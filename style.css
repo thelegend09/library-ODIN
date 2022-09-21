@@ -310,14 +310,12 @@ progress::-webkit-progress-value {
 .books__shelf {
     overflow: scroll;
     max-height: 45vh;
-    /* @fix this inelegant solution. This is all except non-responsive*/
-    height: 40vh;
+    /* ! fix this inelegant solution. This is all except non-responsive*/
+    height: 38vh;
 
     /* hide scrollbars */
     -ms-overflow-style: none;
-    /* IE and Edge */
     scrollbar-width: none;
-    /* Firefox */
 }
 
 /*  hide scrollbars */

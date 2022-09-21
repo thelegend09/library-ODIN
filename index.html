@@ -13,6 +13,38 @@
 </head>
 
 <body>
+    <!-- modal form for adding books -->
+    <div id="prompt-form-container">
+        <form id="prompt-form">
+            <div id="prompt-message"></div>
+            <!-- title -->
+            <label for="title">Title</label>
+            <input name="title" placeholder="The Return of the King" type="text">
+
+            <!-- collection -->
+            <label for="collection">Collection</label>
+            <input name="collection" placeholder="The Lord of the Rings" type="text">
+
+            <!-- author -->
+            <label for="author">Author</label>
+            <input name="author" placeholder="J.R.R. Tolkien" type="text">
+
+            <!-- year -->
+            <label for="year">Year published</label>
+            <input name="year" placeholder="1955" type="number">
+
+            <!-- status -->
+            <label for="status-read">Read</label>
+            <input type="radio" id="status-read" name="status">
+
+            <label for="status-unread">Unread</label>
+            <input type="radio" id="status-unread" name="status">
+
+
+                <input type="submit" value="Ok">
+                <input type="button" name="cancel" value="Cancel">
+        </form>
+    </div>
 
     <div class="container-of-containers">
         <div class="left-panel">
@@ -41,7 +73,7 @@
                     <div class="collections__view-all view-all">View all</div>
                 </div>
 
-                <div class="collections__proper">
+                <div class="collections__shelf">
                     <div class="collection__container">
                         <div class="collection__author">
                             Brandon Sanderson

@@ -427,7 +427,7 @@ progress::-webkit-progress-value {
 #overlay {
     position: fixed;
     opacity: 0;
-    transition: 200ms ease-in-out;
+    transition: 125ms ease-in;
     top: 0;
     left: 0;
     right: 0;
@@ -504,16 +504,17 @@ input[type="radio"]+label {
     text-align: center;
     transition: 300ms;
     font-weight: 900;
+    text-transform: uppercase;
 }
 
 input[type="radio"]:checked+label:first-of-type {
-
-    background-color: var(--lime-2);
+    color: var(--gray-8);
+    background-color: var(--lime-3);
 }
 
 input[type="radio"]:checked+label:last-of-type {
-    background-color: var(--yellow-2);
-
+    background-color: var(--yellow-3);
+    color: var(--gray-8);
 }
 
 
@@ -556,7 +557,6 @@ form .btn {
     position: relative;
     top: 14px;
     /* background-color: var(--violet-6); */
-    /* color: white; */
     transition: all 250ms;
 
 }

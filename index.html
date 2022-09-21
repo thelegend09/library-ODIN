@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="modal.js" defer></script>
+    <!-- <script src="modal.js" defer></script> -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Library</title>
@@ -100,7 +100,7 @@
     </div>
 
     <!-- modal form for adding books -->
-    <div class="form-container active">
+    <div class="form-container">
         <form class="form">
             <ul>
                 <li>
@@ -130,16 +130,16 @@
                 </li>
                 <li class="status-toggle">
                     <!-- status -->
-                    <input type="radio" id="status-read" name="status">
+                    <input type="radio" id="status-read" name="status" value="read">
                     <label for="status-read">Read</label>
 
-                    <input type="radio" id="status-unread" name="status">
+                    <input type="radio" id="status-unread" name="status" value="unread">
                     <label for="status-unread">Unread</label>
 
                 </li>
                 <li class="submit-cancel">
                     <input id="cancel" class="btn" type="button" name="cancel" value="Cancel">
-                    <input id="submit" class="btn" type="submit" value="Submit">
+                    <input id="submit" class="btn" type="button" value="Submit">
                 </li>
 
             </ul>
@@ -148,7 +148,7 @@
         </form>
     </div>
     <!-- overlay -->
-    <div id="overlay" class="active"></div>
+    <div id="overlay" class=""></div>
 </body>
 
 </html>

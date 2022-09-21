@@ -77,7 +77,14 @@ const testingButton = document.querySelector(".logo")
 testingButton.addEventListener("click", () => {
   console.log("Testing button is working.")
 
+myNotif("Booklist has been updated", "", "success")
+
+
 });
+
+
+
+
 
 
 
@@ -106,8 +113,8 @@ function toggleReadUnread() {
 
       }
 
-      // log
-      console.log(bookChildren[0].textContent + " has been marked " + bookChildren[4].textContent.toUpperCase() + ".")
+      // console.log(bookChildren[0].textContent + " has been marked " + bookChildren[4].textContent.toUpperCase() + ".")
+      myNotif(bookChildren[0].textContent, " has been marked " + bookChildren[4].textContent.toUpperCase() + ".", "success")
 
       // make sure the content of the button fits the data
       button.textContent = bookChildren[4].textContent;
@@ -128,6 +135,7 @@ function toggleReadUnread() {
         if (item.title === bookTitle) {
           myLibrary.splice(myLibrary.indexOf(item), 1)
           console.log(bookTitle + " has been removed from your library.")
+          myNotif(bookTitle, "has been removed from your library.", "error")
 
         };
       });
@@ -144,7 +152,7 @@ function toggleReadUnread() {
 
 
 
-// modal
+// MODAL
 
 // button: add books 
 const openModalButton = document.querySelector(".books__btn-add-book");
@@ -172,9 +180,10 @@ submitButton.addEventListener("click", () => {
   // let newBook = new Book(title.value, collection.value, author.value, year.value, readingStatus.value)
   newBook = new Book(title.value, collection.value, author.value, year.value, status)
 
-  myLibrary.push(newBook)
+  myLibrary.unshift(newBook)
   refreshLib();
-  console.log(newBook.title + " has been added to your library.")
+  myNotif("Awesome!", newBook.title + " has been added to your library.", "success")
+  // console.log(newBook.title + " has been added to your library.")
   closeModal(modal)
 });
 
@@ -212,6 +221,7 @@ btnAddDemoData.addEventListener("click", addDemoDataToLibrary)
 
 function addDemoDataToLibrary() {
   console.log("Demo data has been added.")
+  myNotif("Demo data successfully added", "from my favorite books.", "success")
   addDemoBooks("Skyward", "Skyward", "Brandon Sanderson", 2018, "unread")
   addDemoBooks("Steelheart", "The Reckoners", "Brandon Sanderson", 2013, "read")
   addDemoBooks("Firefight", "The Reckoners", "Brandon Sanderson", 2015, "read")
@@ -234,4 +244,19 @@ function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
+}
+
+// notifications
+function myNotif(title, message, theme) {
+  const myNotification = window.createNotification({
+    closeOnClick: true,
+    theme: theme,
+    showDuration: 1800
+  });
+
+  myNotification({
+    title: title,
+    message: message
+  });
+
 }

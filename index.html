@@ -6,69 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" defer href="modal.js">
+    <script src="modal.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Library</title>
-    
+
 </head>
 
 <body>
-    <!-- modal form for adding books -->
-    <div class="form-container">
-        <form class="prompt-form">
-            <ul>
-                <li>
-                    <div class="prompt-title">
-                        <h1>Add book</h1>
-                    </div>
-                </li>
-                <li>
-                    <!-- title -->
-                    <label for="title">Title</label>
-                    <input name="title" required placeholder="The Return of the King" type="text">
-                </li>
-                <li>
-                    <!-- collection -->
-                    <label for="collection">Collection</label>
-                    <input name="collection" placeholder="The Lord of the Rings" type="text">
-
-                </li>
-                <li>
-                    <!-- author -->
-                    <label for="author">Author</label>
-                    <input name="author" required placeholder="J.R.R. Tolkien" type="text">
-                </li>
-                <li>
-
-                    <!-- year -->
-                    <label for="year">Year published</label>
-                    <input name="year" required pattern="[0-9]{3,4}" placeholder="1955" type="number">
-                </li>
-                <li class="status-toggle">
-                    <!-- status -->
-                    <input type="radio" id="status-read" name="status">
-                    <label for="status-read">Read</label>
-
-                    <input type="radio" id="status-unread" name="status">
-                    <label for="status-unread">Unread</label>
-
-                </li>
-                <li class="submit-cancel">
-                    <input class="btn" type="button" name="cancel" value="Cancel">
-                    <input class="btn" type="submit" value="Submit">
-                </li>
-
-            </ul>
-
-
-
-
-
-
-        </form>
-    </div>
-
     <div class="container-of-containers">
         <div class="left-panel">
 
@@ -152,9 +97,58 @@
         </div>
     </div>
 
-
-
     </div>
+
+    <!-- modal form for adding books -->
+    <div class="form-container active">
+        <form class="form">
+            <ul>
+                <li>
+                    <h1>Add book</h1>
+                </li>
+                <li>
+                    <!-- title -->
+                    <label for="title">Title</label>
+                    <input id="title" name="title" required placeholder="The Return of the King" type="text">
+                </li>
+                <li>
+                    <!-- collection -->
+                    <label for="collection">Collection</label>
+                    <input id="collection" name="collection" placeholder="The Lord of the Rings" type="text">
+
+                </li>
+                <li>
+                    <!-- author -->
+                    <label for="author">Author</label>
+                    <input id="author" name="author" required placeholder="J.R.R. Tolkien" type="text">
+                </li>
+                <li>
+
+                    <!-- year -->
+                    <label for="year">Year published</label>
+                    <input id="year" name="year" required pattern="[0-9]{3,4}" placeholder="1955" type="number">
+                </li>
+                <li class="status-toggle">
+                    <!-- status -->
+                    <input type="radio" id="status-read" name="status">
+                    <label for="status-read">Read</label>
+
+                    <input type="radio" id="status-unread" name="status">
+                    <label for="status-unread">Unread</label>
+
+                </li>
+                <li class="submit-cancel">
+                    <input id="cancel" class="btn" type="button" name="cancel" value="Cancel">
+                    <input id="submit" class="btn" type="submit" value="Submit">
+                </li>
+
+            </ul>
+
+
+        </form>
+    </div>
+    <!-- overlay -->
+    <div id="overlay" class="active"></div>
 </body>
 
 </html>

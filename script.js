@@ -114,7 +114,7 @@ function toggleReadUnread() {
       }
 
       // console.log(bookChildren[0].textContent + " has been marked " + bookChildren[4].textContent.toUpperCase() + ".")
-      myNotif(bookChildren[0].textContent, " has been marked " + bookChildren[4].textContent.toUpperCase() + ".", "success")
+      myNotif(bookChildren[0].textContent, "has been marked " + bookChildren[4].textContent.toUpperCase() + ".", "info")
 
       // make sure the content of the button fits the data
       button.textContent = bookChildren[4].textContent;

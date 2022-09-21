@@ -14,35 +14,59 @@
 
 <body>
     <!-- modal form for adding books -->
-    <div id="prompt-form-container">
-        <form id="prompt-form">
-            <div id="prompt-message"></div>
-            <!-- title -->
-            <label for="title">Title</label>
-            <input name="title" placeholder="The Return of the King" type="text">
-
-            <!-- collection -->
-            <label for="collection">Collection</label>
-            <input name="collection" placeholder="The Lord of the Rings" type="text">
-
-            <!-- author -->
-            <label for="author">Author</label>
-            <input name="author" placeholder="J.R.R. Tolkien" type="text">
-
-            <!-- year -->
-            <label for="year">Year published</label>
-            <input name="year" placeholder="1955" type="number">
-
-            <!-- status -->
-            <label for="status-read">Read</label>
-            <input type="radio" id="status-read" name="status">
-
-            <label for="status-unread">Unread</label>
-            <input type="radio" id="status-unread" name="status">
+    <div class="form-container">
+        <form class="prompt-form">
 
 
-                <input type="submit" value="Ok">
-                <input type="button" name="cancel" value="Cancel">
+            <ul>
+                <li>
+                    <div class="prompt-title">
+                      <h1>Add book</h1>  
+                    </div>
+                </li>
+                <li>
+                    <!-- title -->
+                    <label for="title">Title</label>
+                    <input name="title" required placeholder="The Return of the King" type="text">
+                </li>
+                <li>
+                    <!-- collection -->
+                    <label for="collection">Collection</label>
+                    <input name="collection" placeholder="The Lord of the Rings" type="text">
+
+                </li>
+                <li>
+                    <!-- author -->
+                    <label for="author">Author</label>
+                    <input name="author" required placeholder="J.R.R. Tolkien" type="text">
+                </li>
+                <li>
+
+                    <!-- year -->
+                    <label for="year">Year published</label>
+                    <input name="year" required pattern="[0-9]{3,4}" placeholder="1955" type="number">
+                </li>
+                <li class="status-toggle">
+                    <!-- status -->
+                    <input type="radio" id="status-read" name="status">
+                    <label for="status-read">Read</label>
+
+                    <input type="radio" id="status-unread" name="status">
+                    <label for="status-unread">Unread</label>
+
+                </li>
+                <li class="submit-cancel">
+                    <input class="btn" type="button" name="cancel" value="Cancel">
+                    <input class="btn" type="submit" value="Submit">
+                </li>
+
+            </ul>
+
+
+
+
+
+
         </form>
     </div>
 

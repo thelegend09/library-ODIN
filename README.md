@@ -11,6 +11,7 @@ This is an [assignment](https://www.theodinproject.com/lessons/node-path-javascr
   - [x] Find how to access myLibrary
 - [x] Change myLibrary content when toggling read/unread
 - [x] Create modal to add books
+- [x] Add status notifications  (see [this](https://www.cssscript.com/minimal-notification-popup-pure-javascript/))
 
 ## Maybe later:
 - [ ] Have a clear all books button
@@ -20,7 +21,6 @@ This is an [assignment](https://www.theodinproject.com/lessons/node-path-javascr
 - [ ] Add operation history
 - [ ] Add some sound effects (see [this](https://gomakethings.com/how-to-play-a-sound-with-javascript/))
 - [ ] Prevent duplicates
-- [ ] Add status notifications  (see [this](https://www.cssscript.com/minimal-notification-popup-pure-javascript/))
 
-## What I learned
-- 
+## What I need to work on
+- I need to get better at working with arrays of objects.

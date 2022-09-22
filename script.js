@@ -75,10 +75,7 @@ function refreshLib() {
 // button: testing button (on top left logo)
 const testingButton = document.querySelector(".logo")
 testingButton.addEventListener("click", () => {
-  console.log("Testing button is working.")
-
-myNotif("Booklist has been updated", "", "success")
-
+  myNotif("Congratulations!", "You found the secret button.", "success")
 
 });
 
@@ -153,8 +150,6 @@ function toggleReadUnread() {
 
 
 // MODAL
-
-// button: add books 
 const openModalButton = document.querySelector(".books__btn-add-book");
 const closeModalButton = document.getElementById("cancel")
 const overlay = document.getElementById("overlay")

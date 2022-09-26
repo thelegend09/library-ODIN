@@ -261,9 +261,11 @@ function addDemoDataToLibrary() {
   addDemoBooks("Pride and Prejudice", "", "Jane Austen", 1813, "read")
   addDemoBooks("Great Expectations", "", "Charles Dickens", 1860, "read")
   addDemoBooks("Eldest", "The Inheritance Cycle", "Christopher Paolini", 2005, "unread")
-  addDemoBooks("Erago", "The Inheritance Cycle", "Christopher Paolini", 2002, "read")
+  addDemoBooks("Eragon", "The Inheritance Cycle", "Christopher Paolini", 2002, "read")
   addDemoBooks("Brisingr", "The Inheritance Cycle", "Christopher Paolini", 2008, "read")
-  addDemoBooks("FableHaven:Rise of the Evening Star", "Fablehaven", "Brandon Mull", "2007", "read")
+  addDemoBooks("Harry Potter and the Order of the Phoenix", "Harry Potter", "J.K Rowlings", "2003", "read")
+  addDemoBooks("Harry Potter and the Philosopher's Stone", "Harry Potter", "J.K Rowlings", "1997", "read")
+  addDemoBooks("Harry Potter and the Chamber of Secrets", "Harry Potter", "J.K Rowlings", "1998", "unread")
 
   function addDemoBooks(title, collection, author, year, status) {
     let demoBook = new Book(title, collection, author, year, status)

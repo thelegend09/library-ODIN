@@ -93,6 +93,7 @@ function refreshLib() {
   });
   // activate the toggling between read/unread state
   toggleReadUnread();
+  refreshCollections();
 };
 
 
@@ -145,8 +146,11 @@ function toggleReadUnread() {
           }
 
         }
-      })
-
+      }
+      
+    
+      )
+      refreshLib();
 
     });
   });
@@ -164,7 +168,7 @@ function toggleReadUnread() {
         if (item.title === bookTitle) {
           myLibrary.splice(myLibrary.indexOf(item), 1)
           myNotif(bookTitle, "has been removed from your library.", "error")
-
+          refreshLib();
         };
       });
 
@@ -287,72 +291,74 @@ function myNotif(title, message, theme) {
 }
 
 // 6. Collections
-let myLibraryCollections = myLibrary.group((book) => book.collection)
-
-
-let onlyCollections = []
-
-myLibrary.forEach(book => {
-  if (book.collection !== "") {
-    onlyCollections.push(book.collection)
-  }
-});
-
-onlyCollections = new Set(onlyCollections)
-
-onlyCollections.forEach(collection => {
+function refreshCollections() {
   let shelf = document.querySelector(".collections__shelf")
+  removeAllChildNodes(shelf);
 
-  let collContainer = document.createElement("div")
-  collContainer.classList.add("collection__container")
+  let myLibraryCollections = myLibrary.group((book) => book.collection)
 
-  let collName = document.createElement("div")
-  collName.textContent = collection
-  collName.classList.add("collection__name")
 
-  let collAuthor = document.createElement("div")
-  collAuthor.textContent = myLibraryCollections[collection][0]["author"]
-  collAuthor.classList.add("collection__author")
+  let onlyCollections = []
 
-  let collNum = document.createElement("div")
-  collNum.textContent = getPluralOrSingular()
-  
-  function getPluralOrSingular() {
-    if (myLibraryCollections[collection].length === 1) {
-      return myLibraryCollections[collection].length + " book"
+  myLibrary.forEach(book => {
+    if (book.collection !== "") {
+      onlyCollections.push(book.collection)
     }
-    else if (myLibraryCollections[collection].length > 1) {
-      return myLibraryCollections[collection].length + " books"
-    }
-  }
-  myLibraryCollections[collection].length + " books"
-  collNum.classList.add("collection__number-of-books")
+  });
 
-  let progressDiv = document.createElement("div")
-  let progress = document.createElement("progress")
+  onlyCollections = new Set(onlyCollections)
 
-  progress.max = myLibraryCollections[collection].length
-  progress.value = 0
+  onlyCollections.forEach(collection => {
 
-  myLibraryCollections[collection].forEach(book => {
-    let statuses = Array(book.status)
-    
-    statuses.forEach(status => {
-      if (status === "read") {
-        progress.value += 1
+    let collContainer = document.createElement("div")
+    collContainer.classList.add("collection__container")
+
+    let collName = document.createElement("div")
+    collName.textContent = collection
+    collName.classList.add("collection__name")
+
+    let collAuthor = document.createElement("div")
+    collAuthor.textContent = myLibraryCollections[collection][0]["author"]
+    collAuthor.classList.add("collection__author")
+
+    let collNum = document.createElement("div")
+    collNum.textContent = getPluralOrSingular()
+
+    function getPluralOrSingular() {
+      if (myLibraryCollections[collection].length === 1) {
+        return myLibraryCollections[collection].length + " book"
+      } else if (myLibraryCollections[collection].length > 1) {
+        return myLibraryCollections[collection].length + " books"
       }
+    }
+    myLibraryCollections[collection].length + " books"
+    collNum.classList.add("collection__number-of-books")
+
+    let progressDiv = document.createElement("div")
+    let progress = document.createElement("progress")
+
+    progress.max = myLibraryCollections[collection].length
+    progress.value = 0
+
+    myLibraryCollections[collection].forEach(book => {
+      let statuses = Array(book.status)
+
+      statuses.forEach(status => {
+        if (status === "read") {
+          progress.value += 1
+        }
+      })
     })
+
+
+    shelf.appendChild(collContainer)
+    collContainer.appendChild(collAuthor)
+    collContainer.appendChild(collName)
+    collContainer.appendChild(collNum)
+    collContainer.appendChild(progressDiv)
+    progressDiv.appendChild(progress)
+
+
+
   })
-
-
-  shelf.appendChild(collContainer)
-  collContainer.appendChild(collAuthor)
-  collContainer.appendChild(collName)
-  collContainer.appendChild(collNum)
-  collContainer.appendChild(progressDiv)
-  progressDiv.appendChild(progress)
-
-
-
-})
-
+};

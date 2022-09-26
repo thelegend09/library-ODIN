@@ -6,6 +6,7 @@
 4. Demo Data
 5. Notifications
 6. Collections
+7. Horinzontal scrolling
 
 
 
@@ -252,6 +253,7 @@ function addDemoDataToLibrary() {
   console.log("Demo data has been added.")
   myNotif("Demo data successfully added", "from my favorite books.", "success")
   addDemoBooks("Skyward", "Skyward", "Brandon Sanderson", 2018, "unread")
+  addDemoBooks("Starsight", "Skyward", "Brandon Sanderson", 2019, "red")
   addDemoBooks("Steelheart", "The Reckoners", "Brandon Sanderson", 2013, "read")
   addDemoBooks("Firefight", "The Reckoners", "Brandon Sanderson", 2015, "read")
   addDemoBooks("A Deadly Education", "The Scholomance", "Naomi Novik", 2020, "unread")
@@ -259,7 +261,9 @@ function addDemoDataToLibrary() {
   addDemoBooks("Pride and Prejudice", "", "Jane Austen", 1813, "read")
   addDemoBooks("Great Expectations", "", "Charles Dickens", 1860, "read")
   addDemoBooks("Eldest", "The Inheritance Cycle", "Christopher Paolini", 2005, "unread")
+  addDemoBooks("Erago", "The Inheritance Cycle", "Christopher Paolini", 2002, "read")
   addDemoBooks("Brisingr", "The Inheritance Cycle", "Christopher Paolini", 2008, "read")
+  addDemoBooks("FableHaven:Rise of the Evening Star", "Fablehave", "Brandon Mull", "2007", "read")
 
   function addDemoBooks(title, collection, author, year, status) {
     let demoBook = new Book(title, collection, author, year, status)
@@ -362,3 +366,11 @@ function refreshCollections() {
 
   })
 };
+
+// 7. Horinzontal scolling
+const scrollContainer = document.querySelector(".collections__shelf");
+
+scrollContainer.addEventListener("wheel", (evt) => {
+    evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltaY;
+});

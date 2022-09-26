@@ -155,6 +155,27 @@ h2 {
     background-color: var(--violet-1);
 }
 
+@media only screen and (max-width: 1300px) {
+    .left-panel__btn-add-data {
+        padding: 5px 10px;
+        font-size: small;
+        display: flex;
+        /* pdding 10 15 */
+        width: 10vw;
+    }
+}
+
+
+@media only screen and (max-width: 910px) {
+    .left-panel__btn-add-data {
+        padding: 5px 10px;
+        font-size: small;
+        display: flex;
+
+        width: 10vw;
+        border-radius: 15px;
+    }
+}
 
 
 /* 3. MAIN PANEL */

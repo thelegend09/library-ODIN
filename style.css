@@ -242,19 +242,29 @@ h2 {
 /* 3.2.3 Collection item */
 
 .collections__shelf {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 250px);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     padding-top: 2em;
     gap: 1.5em;
 }
 
+
+/* hide scrollbars  */
+.collections__shelf::-webkit-scrollbar {
+    display: none;
+}
+
+
 .collection__container {
+    width: 250px;
     display: grid;
     grid-template-rows: 4fr 1fr 1fr 1fr;
     background-color: var(--gray-1);
     border-radius: 15px;
     padding: 1em 1.2em;
     transition: all 250ms;
+    flex: 0 0 auto;
 
 
 }
@@ -308,32 +318,39 @@ progress::-webkit-progress-value {
 }
 
 .books__shelf {
+    /* overflow: scroll; */
+    /* max-height: 45vh;
+    height: 50vh; */
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-wrap: wrap;
     overflow: scroll;
+    padding-top: 2em;
+    gap: 1.5em;
+    /* this should NOT be hardcoded */
     max-height: 45vh;
-    /* ! fix this inelegant solution. This is all except non-responsive*/
-    height: 38vh;
-
-    /* hide scrollbars */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
 }
 
+@media only screen and (max-width: 1174px) {
+    .books__shelf {
+        max-height: 42vh
+    }
+}
+    
 /*  hide scrollbars */
 .books__shelf::-webkit-scrollbar {
     display: none;
 }
 
-
-
 .book__container {
+    flex: 1 1 auto;
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr 1fr 2fr;
     justify-content: space-between;
     align-items: center;
     color: var(--gray-7);
     transition: all 50ms;
-
-    /* margin-top: 1em; */
     padding: 1.2em;
 
 }

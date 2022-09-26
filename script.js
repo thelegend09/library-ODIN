@@ -253,7 +253,7 @@ function addDemoDataToLibrary() {
   console.log("Demo data has been added.")
   myNotif("Demo data successfully added", "from my favorite books.", "success")
   addDemoBooks("Skyward", "Skyward", "Brandon Sanderson", 2018, "unread")
-  addDemoBooks("Starsight", "Skyward", "Brandon Sanderson", 2019, "red")
+  addDemoBooks("Starsight", "Skyward", "Brandon Sanderson", 2019, "read")
   addDemoBooks("Steelheart", "The Reckoners", "Brandon Sanderson", 2013, "read")
   addDemoBooks("Firefight", "The Reckoners", "Brandon Sanderson", 2015, "read")
   addDemoBooks("A Deadly Education", "The Scholomance", "Naomi Novik", 2020, "unread")
@@ -263,7 +263,7 @@ function addDemoDataToLibrary() {
   addDemoBooks("Eldest", "The Inheritance Cycle", "Christopher Paolini", 2005, "unread")
   addDemoBooks("Erago", "The Inheritance Cycle", "Christopher Paolini", 2002, "read")
   addDemoBooks("Brisingr", "The Inheritance Cycle", "Christopher Paolini", 2008, "read")
-  addDemoBooks("FableHaven:Rise of the Evening Star", "Fablehave", "Brandon Mull", "2007", "read")
+  addDemoBooks("FableHaven:Rise of the Evening Star", "Fablehaven", "Brandon Mull", "2007", "read")
 
   function addDemoBooks(title, collection, author, year, status) {
     let demoBook = new Book(title, collection, author, year, status)

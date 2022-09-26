@@ -1,4 +1,20 @@
-// MAIN 
+/* Table of contents
+
+1. Data
+2. User Interface
+3. Modal
+4. Demo Data
+5. Notifications
+6. Collections
+
+
+
+
+
+*/
+
+// --------------------
+// 1. Data 
 let myLibrary = [];
 
 function Book(title, collection, author, year, status) {
@@ -9,57 +25,64 @@ function Book(title, collection, author, year, status) {
     this.status = status
 }
 
-// initialize
 addDemoDataToLibrary();
 
+// --------------------
+// 2. User Interface
 
-// refresh interface so that what you see is the actual content of myLibrary
+// refresh UI to fit with content of myLibrary
 function refreshLib() {
-  // alert("it works")  
   let booksShelf = document.querySelector(".books__shelf")
+
   // start afresh everytime
   removeAllChildNodes(booksShelf);
 
+  // rebuilt UI library
   myLibrary.forEach(book => {
     // create the container
     let bookContainer = document.createElement("div")
     bookContainer.classList.add("book__container")
     booksShelf.appendChild(bookContainer);
 
-    // create the elements 
+    // create the title 
     let bookTitle = document.createElement("div")
     bookTitle.classList.add("book__title")
     bookContainer.appendChild(bookTitle);
     bookTitle.textContent = book.title;
 
+    // create the author
     let bookAuthor = document.createElement("div")
     bookAuthor.classList.add("book__author")
     bookContainer.appendChild(bookAuthor);
     bookAuthor.textContent = book.author;
 
+    // create the collection
     let bookCollection = document.createElement("div")
     bookCollection.classList.add("book__collection")
     bookContainer.appendChild(bookCollection);
     bookCollection.textContent = book.collection;
 
+    // create the year
     let bookYear = document.createElement("div")
     bookYear.classList.add("book__year")
     bookContainer.appendChild(bookYear);
     bookYear.textContent = book.year;
 
+    // create the reading status
     let bookStatus = document.createElement("div")
     bookStatus.classList.add("book__status", "btn")
     bookContainer.appendChild(bookStatus);
     bookStatus.textContent = book.status;
 
     // check book read/unread status
+    // and assign the appropriate class
     if (book.status == "read") {
       bookStatus.classList.add("is-read")
     } else if (book.status == "unread") {
       bookStatus.classList.add("is-unread")
     }
 
-    // Add delete button
+    // add delete button
     let deleteButtonContainer = document.createElement("div")
     let deleteButton = document.createElement("i")
     deleteButtonContainer.classList.add("book__delete");
@@ -68,35 +91,32 @@ function refreshLib() {
     deleteButtonContainer.appendChild(deleteButton)
 
   });
+  // activate the toggling between read/unread state
   toggleReadUnread();
 };
 
 
-// button: testing button (on top left logo)
+// button for testing (on top left logo)
 const testingButton = document.querySelector(".logo")
 testingButton.addEventListener("click", () => {
   myNotif("Congratulations!", "You found the secret button.", "success")
-
 });
 
 
 
-
-
-
-
-
-// button: toggle read/unread on each book
+// button: toggle read/unread state on each book
 function toggleReadUnread() {
+  // toggle status visually
   const readingStatus = document.querySelectorAll(".book__status")
 
   readingStatus.forEach((button) => {
+
     button.addEventListener("click", () => {
 
       let book = button.parentElement;
       let bookChildren = book.childNodes
 
-      // target the book__status div
+      // target .book__status
       let currentStatus = bookChildren[4].textContent;
 
       if (currentStatus === "read") {
@@ -107,14 +127,26 @@ function toggleReadUnread() {
         bookChildren[4].textContent = "read"
         button.classList.remove("is-unread");
         button.classList.add("is-read");
-
       }
-
-      // console.log(bookChildren[0].textContent + " has been marked " + bookChildren[4].textContent.toUpperCase() + ".")
-      myNotif(bookChildren[0].textContent, "has been marked " + bookChildren[4].textContent.toUpperCase() + ".", "info")
 
       // make sure the content of the button fits the data
       button.textContent = bookChildren[4].textContent;
+
+      // show notification about changed status
+      myNotif(bookChildren[0].textContent, "has been marked " + bookChildren[4].textContent.toUpperCase() + ".", "info")
+
+      // change data in myLibrary
+      myLibrary.forEach(item => {
+        if (item.title === bookChildren[0].textContent) {
+          if (item.status === "read") {
+            item.status = "unread"
+          } else if (item.status === "unread") {
+            item.status = "read"
+          }
+
+        }
+      })
+
 
     });
   });
@@ -131,7 +163,6 @@ function toggleReadUnread() {
       myLibrary.forEach(item => {
         if (item.title === bookTitle) {
           myLibrary.splice(myLibrary.indexOf(item), 1)
-          console.log(bookTitle + " has been removed from your library.")
           myNotif(bookTitle, "has been removed from your library.", "error")
 
         };
@@ -145,11 +176,8 @@ function toggleReadUnread() {
 };
 
 
-
-
-
-
-// MODAL
+// --------------------
+// 3. Modal
 const openModalButton = document.querySelector(".books__btn-add-book");
 const closeModalButton = document.getElementById("cancel")
 const overlay = document.getElementById("overlay")
@@ -176,9 +204,11 @@ submitButton.addEventListener("click", () => {
   newBook = new Book(title.value, collection.value, author.value, year.value, status)
 
   myLibrary.unshift(newBook)
+
   refreshLib();
+
   myNotif("Awesome!", newBook.title + " has been added to your library.", "success")
-  // console.log(newBook.title + " has been added to your library.")
+
   closeModal(modal)
 });
 
@@ -210,7 +240,7 @@ function closeModal(modal) {
 
 }
 
-// 2.3 add demo data
+// 4. Add demo data
 const btnAddDemoData = document.querySelector(".left-panel__btn-add-data")
 btnAddDemoData.addEventListener("click", addDemoDataToLibrary)
 
@@ -241,7 +271,7 @@ function removeAllChildNodes(parent) {
   }
 }
 
-// notifications
+// 5. Notifications
 function myNotif(title, message, theme) {
   const myNotification = window.createNotification({
     closeOnClick: true,
@@ -255,3 +285,74 @@ function myNotif(title, message, theme) {
   });
 
 }
+
+// 6. Collections
+let myLibraryCollections = myLibrary.group((book) => book.collection)
+
+
+let onlyCollections = []
+
+myLibrary.forEach(book => {
+  if (book.collection !== "") {
+    onlyCollections.push(book.collection)
+  }
+});
+
+onlyCollections = new Set(onlyCollections)
+
+onlyCollections.forEach(collection => {
+  let shelf = document.querySelector(".collections__shelf")
+
+  let collContainer = document.createElement("div")
+  collContainer.classList.add("collection__container")
+
+  let collName = document.createElement("div")
+  collName.textContent = collection
+  collName.classList.add("collection__name")
+
+  let collAuthor = document.createElement("div")
+  collAuthor.textContent = myLibraryCollections[collection][0]["author"]
+  collAuthor.classList.add("collection__author")
+
+  let collNum = document.createElement("div")
+  collNum.textContent = getPluralOrSingular()
+  
+  function getPluralOrSingular() {
+    if (myLibraryCollections[collection].length === 1) {
+      return myLibraryCollections[collection].length + " book"
+    }
+    else if (myLibraryCollections[collection].length > 1) {
+      return myLibraryCollections[collection].length + " books"
+    }
+  }
+  myLibraryCollections[collection].length + " books"
+  collNum.classList.add("collection__number-of-books")
+
+  let progressDiv = document.createElement("div")
+  let progress = document.createElement("progress")
+
+  progress.max = myLibraryCollections[collection].length
+  progress.value = 0
+
+  myLibraryCollections[collection].forEach(book => {
+    let statuses = Array(book.status)
+    
+    statuses.forEach(status => {
+      if (status === "read") {
+        progress.value += 1
+      }
+    })
+  })
+
+
+  shelf.appendChild(collContainer)
+  collContainer.appendChild(collAuthor)
+  collContainer.appendChild(collName)
+  collContainer.appendChild(collNum)
+  collContainer.appendChild(progressDiv)
+  progressDiv.appendChild(progress)
+
+
+
+})
+

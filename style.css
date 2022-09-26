@@ -266,7 +266,7 @@ h2 {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-top: 2em;
+    padding: 1.5em;
     gap: 1.5em;
 }
 
@@ -291,9 +291,16 @@ h2 {
 }
 
 .collection__container:hover {
-    box-shadow: var(--shadow-3);
+    box-shadow: var(--shadow-2);
+
 
 }
+
+.collection__container:active {
+    box-shadow: var(--shadow-4);
+    
+}
+
 
 .collection__author {
     align-self: end;

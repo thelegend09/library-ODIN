@@ -14,6 +14,7 @@ This is an [assignment](https://www.theodinproject.com/lessons/node-path-javascr
 - [x] Add status notifications  (see [this](https://www.cssscript.com/minimal-notification-popup-pure-javascript/))
 - [x] Calculate the percentage of collection read
 - [x] Dynamically updated collections
+- [x] Change constructors to classes
 
 ## Maybe later:
 - [ ] Have a clear all books button
@@ -23,5 +24,4 @@ This is an [assignment](https://www.theodinproject.com/lessons/node-path-javascr
 - [ ] Add some sound effects (see [this](https://gomakethings.com/how-to-play-a-sound-with-javascript/))
 - [ ] Prevent duplicates
 
-## What I realised
-- I need to get better at working with arrays of objects.
+

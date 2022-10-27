@@ -18,12 +18,16 @@
 // 1. Data 
 let myLibrary = [];
 
-function Book(title, collection, author, year, status) {
-  this.title = title,
-    this.collection = collection,
-    this.author = author,
-    this.year = year,
-    this.status = status
+class Book
+{
+  constructor(title, collection, author, year, status)
+  {
+    this.title = title,
+      this.collection = collection,
+      this.author = author,
+      this.year = year,
+      this.status = status;
+  }
 }
 
 addDemoDataToLibrary();
@@ -263,9 +267,9 @@ function addDemoDataToLibrary() {
   addDemoBooks("Eldest", "The Inheritance Cycle", "Christopher Paolini", 2005, "unread")
   addDemoBooks("Eragon", "The Inheritance Cycle", "Christopher Paolini", 2002, "read")
   addDemoBooks("Brisingr", "The Inheritance Cycle", "Christopher Paolini", 2008, "read")
-  addDemoBooks("Harry Potter and the Order of the Phoenix", "Harry Potter", "J.K Rowlings", "2003", "read")
-  addDemoBooks("Harry Potter and the Philosopher's Stone", "Harry Potter", "J.K Rowlings", "1997", "read")
-  addDemoBooks("Harry Potter and the Chamber of Secrets", "Harry Potter", "J.K Rowlings", "1998", "unread")
+  addDemoBooks("Harry Potter and the Order of the Phoenix", "Harry Potter", "J.K. Rowlings", "2003", "read")
+  addDemoBooks("Harry Potter and the Philosopher's Stone", "Harry Potter", "J.K. Rowlings", "1997", "read")
+  addDemoBooks("Harry Potter and the Chamber of Secrets", "Harry Potter", "J.K. Rowlings", "1998", "unread")
 
   function addDemoBooks(title, collection, author, year, status) {
     let demoBook = new Book(title, collection, author, year, status)
